@@ -60,7 +60,8 @@ class import_results(CrawlPlugin):
                                     is read from the input files.
         """
         self._load_data_from_base64()
-        self._load_data_from_burp()
+#        self._load_data_from_burp() //AB: This is a bug. The plugin tries to fetch from both inputs. 
+
 
     def _load_data_from_base64(self):
         """
@@ -146,10 +147,10 @@ class import_results(CrawlPlugin):
                         help=h)
         ol.add(o)
 
-        d = 'Burp log file from which to create the fuzzable requests'
-        h = 'The input file needs to be in Burp format.'
-        o = opt_factory('input_burp', self._input_burp, d, INPUT_FILE, help=h)
-        ol.add(o)
+        # d = 'Burp log file from which to create the fuzzable requests'
+        # h = 'The input file needs to be in Burp format.'
+        # o = opt_factory('input_burp', self._input_burp, d, INPUT_FILE, help=h)
+        # ol.add(o)
 
         return ol
 
@@ -162,7 +163,7 @@ class import_results(CrawlPlugin):
         :return: No value is returned.
         """
         self._input_base64 = options_list['input_base64'].get_value()
-        self._input_burp = options_list['input_burp'].get_value()
+#        self._input_burp = options_list['input_burp'].get_value()
 
     def get_long_desc(self):
         """

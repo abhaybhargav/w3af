@@ -65,7 +65,7 @@ def check_uri_syntax(uri, host=None):
     scheme = scheme.lower()
 
     if not scheme:
-        scheme = 'http'
+        scheme = 'https'
     if not domain:
         domain = host
     if not path:
